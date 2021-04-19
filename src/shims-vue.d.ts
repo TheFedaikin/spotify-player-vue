@@ -6,4 +6,5 @@ declare module '*.vue' {
 
 interface ImportMetaEnv {
   VITE_SPOTIFY_CLIENT_ID: string
+  VITE_REDIRECT: string
 }

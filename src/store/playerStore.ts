@@ -8,7 +8,15 @@ import { Song, SongEntity } from '@entities'
 // * My preference is to keep it out of the runtime, and check in compile time.
 type Statuses = 'LOADING' | 'IDLE' | 'AD' | 'TRACK' | 'ERROR'
 
-type State = {
+// * In this case we actually want to provide the wrapper...
+// * Because our contract relies on this particular API/endpoint
+const SpotifyHttpStatuses = {
+  NO_PLAYBACK: 204,
+  TOKEN_EXPIRED: 401,
+  INTERNAL: 500,
+} as const
+
+interface State {
   song: Song
   status: Statuses
   token: string
@@ -18,7 +26,7 @@ type SetSongInfo = (song: Song) => void
 
 type ChangeStatus = (status: Statuses) => void
 
-type PlayerStore = {
+interface PlayerStore {
   setSongInfo: SetSongInfo
   changeStatus: ChangeStatus
   state: State
@@ -51,12 +59,12 @@ export const createPlayerStore = (): PlayerStore => {
         headers: { Authorization: `Bearer ${state.token}` },
       })
       switch (status) {
-        case 204:
+        case SpotifyHttpStatuses.NO_PLAYBACK:
           return changeStatus('IDLE')
-        case 401:
+        case SpotifyHttpStatuses.TOKEN_EXPIRED:
           removeTokenFromStorage()
           return changeStatus('LOADING')
-        case 500:
+        case SpotifyHttpStatuses.INTERNAL:
           return changeStatus('ERROR')
         default:
           if (body?.currently_playing_type === 'ad') {

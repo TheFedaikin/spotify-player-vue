@@ -1,5 +1,6 @@
 import { pathsToModuleNameMapper } from 'ts-jest/utils'
 import { compilerOptions } from './tsconfig.json'
+
 const moduleNameMapper = pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' })
 
 export default {

@@ -12,6 +12,7 @@
   width: 10rem;
   height: 5rem;
   margin: 2rem;
+
   &:hover {
     color: var(--color-highlight);
   }
