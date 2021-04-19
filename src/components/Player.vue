@@ -64,7 +64,7 @@ export default defineComponent({
   cursor: pointer;
   background: var(--color-main);
   border-radius: 6px;
-  box-shadow: inset 0px 1px 3px var(--color-transparent);
+  box-shadow: inset 0 1px 3px var(--color-transparent);
 }
 
 @mixin thumb {
@@ -81,9 +81,11 @@ export default defineComponent({
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -96,17 +98,21 @@ main {
   align-items: center;
   min-height: 300px;
   margin: 0 2rem;
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 }
+
 aside {
   margin: 0;
   margin-left: 2rem;
+
   @media screen and (max-width: 768px) {
     margin: 0;
   }
 }
+
 .figure {
   width: 300px;
   height: 300px;
@@ -116,12 +122,14 @@ aside {
   padding: 0;
   // * This can be an SVG icon for placeholder
   background-color: var(--color-transparent);
+
   &.empty {
     background: linear-gradient(-45deg, var(--color-main), var(--color-text), var(--color-white));
     background-size: 400% 400%;
     animation: gradient 10s ease infinite;
   }
 }
+
 h2 {
   padding: 0;
   margin: 0;
@@ -129,6 +137,7 @@ h2 {
   font-size: 1.5rem;
   line-height: 2.5rem;
 }
+
 .artist {
   padding: 0;
   margin: 0;
@@ -145,18 +154,23 @@ h2 {
 input[type='range'] {
   -webkit-appearance: none;
   background: transparent;
+
   &:focus {
     outline: none;
   }
+
   &::-webkit-slider-thumb {
     @include thumb;
   }
+
   &::-moz-range-thumb {
     @include thumb;
   }
+
   &::-webkit-slider-runnable-track {
     @include track;
   }
+
   &::-moz-range-track {
     @include track;
   }

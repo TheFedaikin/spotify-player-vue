@@ -2,7 +2,7 @@
 // * But it should be enough considering the demo status and time-constraints.
 
 import { mount } from '@vue/test-utils'
-import Player from '@component/Player.vue'
+import Player from './Player.vue'
 import { SongEntity } from '@entities'
 
 describe('Player', () => {

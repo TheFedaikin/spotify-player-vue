@@ -26,7 +26,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .login-button {
   border-radius: 500px;
-  border: 0px;
+  border: 0;
   box-sizing: border-box;
   color: var(--color-text);
   background-color: var(--color-main);
@@ -46,18 +46,22 @@ export default defineComponent({
   vertical-align: middle;
   will-change: transform;
   z-index: 10;
+
   &:active,
   &:hover {
     background-color: var(--color-highlight);
   }
+
   &:hover {
     transform: scale(1.04);
   }
+
   &:focus {
     &::before {
       border-width: 3px;
     }
   }
+
   &::before {
     transition-duration: 33ms;
     transition-property: border-color;
