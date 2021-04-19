@@ -6,7 +6,7 @@
 - Uses yarn as a package manager
 - This project setup is based on the Vite template for Vue 3 with Sass and Typescript
 - ESLint, Prettier, Husky and Commitlint are configured
-- Deployed to Vercel
+- [Deployed to Vercel](https://spotify-player-vue.vercel.app/}
 - Only Vue as a production dependency
 - SSR friendly wrappers for window
 - Was tested on Node LTS
