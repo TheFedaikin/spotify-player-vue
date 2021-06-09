@@ -14,7 +14,7 @@
 
 ## Pitfalls of the setup:
 
-- Unit-testing is a very shallow at this moment because at the time of writing I wasn't able to do a proper setup. I've added tests for the simplest component that doesn't use any aliases or import.meta stuff because all others are braking or not targets for the tests. The setup that would work with aliases, ES modules and, more importantly Vite was not achieved in the time frame, so I dropped it. Every time I try to fix these issues one of them kept breaking. This error in particular is impossible to fix without major hacks and ugly workaround, EVEN with mocking of the modules:
+- Unit-testing is a very shallow at this moment because at the time of writing I wasn't able to do a proper setup. I've added tests for the simplest component that doesn't use any aliases or import.meta stuff because all others are breaking or not targets for the tests. The setup that would work with aliases, ES modules and, more importantly Vite was not achieved in the time frame, so I dropped it. Every time I try to fix these issues one of them kept breaking. This error in particular is impossible to fix without major hacks and ugly workaround, EVEN with mocking of the modules:
 
 ```
 The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'esnext', or 'system'.
